@@ -10,14 +10,16 @@ require('dotenv').config();
 
 
 app.post('/generate-image', async (req, res) => {
-    const { prompt, imageSize } = req.body;
+
+    const { prompt, size } = req.body;
+    console.log(prompt);
     const API_KEY = await secretsService.getSecretValue('open-ai-api-key')
 
     const response = await axios.post(
         'https://api.openai.com/v1/images/generations',
         {
             prompt,
-            imageSize,
+            size,
         },
         {
             headers: {
@@ -27,9 +29,28 @@ app.post('/generate-image', async (req, res) => {
         }
     );
     res.json(response.data);
-   
-
 });
 
+app.post('/edit-image', async (req, res) => {
+
+    const { prompt, size } = req.body;
+    console.log(prompt);
+    const API_KEY = await secretsService.getSecretValue('open-ai-api-key')
+
+    const response = await axios.post(
+        'https://api.openai.com/v1/images/generations',
+        {
+            prompt,
+            size,
+        },
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${API_KEY}`,
+            },
+        }
+    );
+    res.json(response.data);
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
