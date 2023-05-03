@@ -54,5 +54,4 @@ jobs:
               --cluster arn:aws:ecs:us-east-1:951061097896:cluster/dev-cluster \
               --task-definition arn:aws:ecs:us-east-1:951061097896:task-definition/api-task:5 \
               --launch-type EC2 \
-              --network-configuration "awsvpcConfiguration={subnets=[subnet-12345678],securityGroups=[sg-12345678],assignPublicIp=ENABLED}" \
               --count 1
