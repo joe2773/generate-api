@@ -53,5 +53,5 @@ jobs:
               --cluster arn:aws:ecs:us-east-1:951061097896:cluster/dev-cluster \
               --task-definition arn:aws:ecs:us-east-1:951061097896:task-definition/api-task:5 \
               --network-configuration "awsvpcConfiguration={subnets=[subnet-09d261243dc7f37b1, subnet-0d486c7a14ccdc9bd, subnet-05f69ac405aa6bfab, subnet-050ff51feb258e609, subnet-028c5ecc9bc80f918, subnet-0e3a1cc52a18b4354],securityGroups=[sg-040efe0490d70439d]}" \
-              --launch-type EC2 \
+              --launch-type FARGATE \
               --count 1
