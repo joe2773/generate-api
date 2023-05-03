@@ -37,7 +37,6 @@ jobs:
   deploy:
       needs: build
       runs-on: ubuntu-latest
-      if: github.event.inputs.deploy
       steps:
         - name: Configure AWS credentials
           uses: aws-actions/configure-aws-credentials@v1
